@@ -1,0 +1,126 @@
+.selector-for-some-widget {
+    box-sizing: content-box;
+  }
+  *{ 
+    margin: 0 ;
+    padding: 0 !important;
+    box-sizing: content-box;
+}
+div.imgfond{
+    width:100%;
+    background-image: url("../images/fond.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: fixed;
+    height: 597px;
+}
+.plaisir{
+    height: 7%;
+    background: #0B5973;
+    border: 1px solid #758651;
+}
+.imageH{
+    background-image: url("../Images/logo-QuizzSA.png");
+    height: 3.2em;
+    width: 10%;
+    background-repeat: no-repeat;
+    background-size:contain;
+    position: absolute;
+    left: 10px;
+    top: -4px;
+}
+.jouer{
+    text-align: center;
+    color: #FFFFFF;
+   line-height: 1em;
+   font-size: 2em;
+}
+.div-form-con{
+    position: relative;
+    background-color: #fbffff;
+    margin:auto;
+    width:22em;
+    height: 28em;
+    top:1em;
+}
+.login{
+    position: absolute;
+    font-family: Sans-serif;
+    font-weight: bold;
+    font-size: 01.5em; 
+    color: #58BDE9;
+    top:1em;
+    left: 4.3em;
+}
+form{
+    position: relative;
+    width: 100%;
+    height: auto;
+    top: 4em;
+}
+.div2 input{
+height: 2.5em;
+text-indent: 25px;
+letter-spacing: 1px;
+background: #E5E5E5;
+margin: auto;
+box-shadow: inset 0 .4em .4em rgba(0, 0, 0, 0.25);
+}
+.checkbox input{
+    height: 2em;
+    width:1.5em;
+    margin: 1em 0 0 1.2em;
+    border: 2px solid #0B5973;
+    box-sizing: border-box;
+
+ } 
+.checkbox span{
+    position: absolute;
+    margin: 1.2em  .5em!important ;
+    color: #58BDE9;
+    font-family: sans-serif;
+}
+
+div .btn{  
+    height: 1.5em;
+    letter-spacing: 1px;
+    line-height: -3em;
+    font-size:1.5em;
+    margin : .5em .7em;
+    color:  #fbffff; 
+    background: #58BDE9;
+    box-shadow: 0 .1em .3em rgba(0, 0, 0, 0.25);
+}
+.inscrire {
+    background: #fff;
+    box-shadow: 0 .4em .4em rgba(0, 0, 0, 0.25);
+    border-radius: 50px;
+    text-align: center;
+    margin-left :1em;
+    height: 2.5em;
+    margin-top: 1em;
+}
+.inscrire,.btn,.div2 input{
+   border-radius: 50px;
+   width:90%;
+}
+.inscrire a{
+    color: #58BDE9;
+    text-decoration: none;
+    line-height: 3em;
+}
+.inscrire a:hover{
+    color:rgb(26, 29, 236);
+    text-decoration: underline;
+}
+.f{
+    position: absolute;
+    height: 5%;
+    width: 100%;
+    bottom: 0;
+    background: #0B5973;
+    border: 1px solid #758651;
+    text-align: center;
+    color: #fff;
+    
+}
