@@ -1,14 +1,14 @@
-
+      
         <?php
             session_start();
-            $servername = 'localhost';
-            $username = 'root';
+            $servername = 'mysql-keaner.alwaysdata.net';
+            $username = 'keaner';
             $password = 'Samsuge__';
-            $bdnam = 'bdQUIZZ';
+            $bdnam = 'keaner_quizz2';
             $bd ='mysql:host=$servername';
             
             try {
-              $conn = new PDO("mysql:host=$servername;dbname=$bdnam", $username);
+              $conn = new PDO("mysql:host=$servername;dbname=$bdnam", $username,$password);
               // set the PDO error mode to exception
               $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
               $retour = "Connection success";
@@ -25,7 +25,7 @@
               
              
             
-           
+          
           
           /*  $mysqli = new mysqli($servername,$username,$password)
        
