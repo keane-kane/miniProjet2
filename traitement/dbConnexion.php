@@ -1,6 +1,6 @@
       
         <?php
-            session_start();
+           // session_start();
             $servername = 'mysql-keaner.alwaysdata.net';
             $username = 'keaner';
             $password = 'Samsuge__';
@@ -20,7 +20,7 @@
             
                $requete="SELECT * FROM `donneesuser` WHERE login = '$login' LIMIT 1";
                $ligne = bdRequete($conn,$requete);
-               var_dump($ligne);
+               //var_dump($ligne);
             
               
              
@@ -28,6 +28,7 @@
           
           
           /*  $mysqli = new mysqli($servername,$username,$password)
+          http://keaner.alwaysdata.net/miniprojet/index.php
        
            
 Samsuge__ ,keaner_quizz2 ,Hôte MySQL : mysql-keaner.alwaysdata.net

@@ -11,28 +11,28 @@ div.imgfond{
     background-image: url("../images/fond.jpg");
     background-size: cover;
     background-repeat: no-repeat;
-    position: fixed;
-    height: 597px;
+    margin-bottom: none;
+   height: 598px;
 }
 .plaisir{
-    height: 7%;
+    height: 8%;
     background: #0B5973;
     border: 1px solid #758651;
 }
 .imageH{
-    background-image: url("../Images/logo-QuizzSA.png");
-    height: 2.6em;
+    background-image: url("../images/logo-QuizzSA.png");
+    height: 2.8em;
     width: 10%;
     background-repeat: no-repeat;
     background-size:contain;
     position: absolute;
     left: 10px;
-    top: -4px;
+    top: -3px;
 }
 .jouer{
     text-align: center;
     color: #FFFFFF;
-   line-height: 1em;
+   line-height: 1.2em;
    font-size: 2em;
 }
 .div-form-con{
@@ -44,19 +44,20 @@ div.imgfond{
     top:1em;
 }
 .login{
-    position: absolute;
+    position: relative;
     font-family: Sans-serif;
     font-weight: bold;
     font-size: 01.5em; 
     color: #58BDE9;
+    text-align: center;
     top:1em;
-    left:30%;
+   
 }
 form{
     position: relative;
     width: 100%;
     height: auto;
-    top: 3em;
+    top: 1em;
 }
 .div2 {
     margin: 2em 0 -1em;
@@ -117,10 +118,11 @@ div .btn{
     text-decoration: underline;
 }
 .f{
-    position: absolute;
+    position: relative;
     height: 5%;
     width: 100%;
-    bottom: 0;
+   bottom: -4.6em;
+   margin-bottom: 0;
     background: #0B5973;
     border: 1px solid #758651;
     text-align: center;
@@ -135,7 +137,7 @@ div .btn{
 .error{
     display: block;
    position: relative;
-    top: 4em;
+    top: 1.8em;
     margin-bottom: -1em;
     color: #fff;
     font-size: 14px;

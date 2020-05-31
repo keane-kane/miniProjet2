@@ -5,7 +5,7 @@ $result='';
 //verification des champ et sorti des erreurs
 
     if(!empty($_POST['submit']) ) {
-        var_dump($_POST);
+//var_dump($_POST);
         
         $login = test_input($_POST['login']);
         $pwd = test_input($_POST['pwd']);
@@ -15,7 +15,7 @@ $result='';
         if($login != "" && $pwd != "" ) {
             if($ligne!=null){
             $result = connexion($pwd,$login,$ligne);
-           echo $result;
+           //echo $result;
            }
         }else {
             $errorMes['incorrecte']= 'Tous champsles sont obligatoires';
@@ -25,9 +25,8 @@ $result='';
                  $errorMes['incorrecte'] = "Votre mot de passe ou identifiants est incorrectes  
                                             !<br>Si vous êtes nouveau inscrivez-vous";
         }else{
-            echo 'je suis la';
               header("location: index.php?page=".$result);
-              }
+        }
          
         
     }
