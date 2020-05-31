@@ -21,7 +21,7 @@ div.imgfond{
 }
 .imageH{
     background-image: url("../Images/logo-QuizzSA.png");
-    height: 3.2em;
+    height: 2.6em;
     width: 10%;
     background-repeat: no-repeat;
     background-size:contain;
@@ -50,13 +50,16 @@ div.imgfond{
     font-size: 01.5em; 
     color: #58BDE9;
     top:1em;
-    left: 4.3em;
+    left:30%;
 }
 form{
     position: relative;
     width: 100%;
     height: auto;
-    top: 4em;
+    top: 3em;
+}
+.div2 {
+    margin: 2em 0 -1em;
 }
 .div2 input{
 height: 2.5em;
@@ -69,15 +72,15 @@ box-shadow: inset 0 .4em .4em rgba(0, 0, 0, 0.25);
 .checkbox input{
     height: 2em;
     width:1.5em;
-    margin: 1em 0 0 1.2em;
+    margin: 1.5em 0 0 1.5em;
     border: 2px solid #0B5973;
     box-sizing: border-box;
 
  } 
 .checkbox span{
     position: absolute;
-    margin: 1.2em  .5em!important ;
-    color: #58BDE9;
+    margin: 1.8em  .5em!important ;
+    color: #000;
     font-family: sans-serif;
 }
 
@@ -105,12 +108,12 @@ div .btn{
    width:90%;
 }
 .inscrire a{
-    color: #58BDE9;
+    color:rgb(26, 29, 236);;
     text-decoration: none;
     line-height: 3em;
 }
 .inscrire a:hover{
-    color:rgb(26, 29, 236);
+    color:rgb(245, 11, 11);
     text-decoration: underline;
 }
 .f{
@@ -121,6 +124,23 @@ div .btn{
     background: #0B5973;
     border: 1px solid #758651;
     text-align: center;
+    color: #fff; 
+}
+.erreur{
+
+    margin: 0em 0 0 2.5em;
+    color: red;
+    font-size: 12px;
+}
+.error{
+    display: block;
+   position: relative;
+    top: 4em;
+    margin-bottom: -1em;
     color: #fff;
+    font-size: 14px;
+    text-align: center;
+    width: 100%;
+   background-color:  red;
     
 }
