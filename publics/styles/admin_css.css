@@ -1,0 +1,408 @@
+*{
+    box-sizing: border-box;
+}
+.inter_admin{  
+    width: 60%;
+    border-radius: 50px;  
+    height: 500px;
+    margin: auto;
+    top: -1em;
+    background: #3F8FA0;
+    margin-bottom: -60px;
+}
+.div-row1 {
+    display: flex;
+    margin: auto;
+    left: 10%;
+}
+
+@media screen and (max-width :1000px){
+    .inter_admin{
+        width: 65%;
+        border-radius: 25px;
+    }
+}
+
+@media screen and (max-width :860px){
+    .inter_admin{
+        width: 75%;
+        border-radius: 25px;
+    }
+}
+@media screen and (max-width :700px){
+    .inter_admin{
+        width: 100%;
+        border-radius: 25px;
+    }
+    .adminquizz{
+        font-size: 16px;
+    }
+    .menuheader{
+        top: 5px;
+        margin: auto;
+    }
+    .div-row1 {
+        margin: auto;
+        left: 0%;
+    }
+  
+}
+@media screen and (max-width :576px){
+    .inter_admin{
+        width: 100%;
+        border-radius: 5px;
+    }
+    .adminquizz{
+        font-size: 14px;
+    }
+    .menuheader{
+        top: 5px;
+        margin: auto;
+    }
+    .div-row1 {
+        margin: auto;
+        left: 0%;
+    }
+   
+}
+@media screen and (max-width :360px){
+    .inter_admin{
+        width: 100%;
+        border-radius: 5px;
+    }
+    .adminquizz{
+        font-size: 12px;
+    }
+    .menuheader{
+         margin: 0;
+        left: 5%;  
+    }
+    .div-row1 {
+        margin: auto;
+        left: -2%;
+    }
+}
+
+.menuheader{
+    top: 10px; 
+    margin: auto; 
+    left: 5%;
+}
+.adminquizz{
+    color: #fff;
+    display: inline;
+    font-weight: bold;
+}
+
+.partiadmin{
+    
+    left: 3%;
+    top: 1em;
+    background-color:#fff ;
+    width: 10em;
+    box-shadow:  0px 0px 5px 0px  #818181 ;
+    border-radius: 5px;
+    padding-bottom: 10px;
+}
+.admin-avatar {
+    box-shadow:  0px 0px 5px 0px  #818181 ;
+    background:  linear-gradient(  #f8fdfd,#51bfd0) ;
+    height: 130px;
+    margin:0px 0  5px 0;
+    top: -1em;
+}
+.admin-avatar img{
+    width:90px;
+    height:90px;
+    border-radius: 100%;
+    margin: 1em 0em  0 4em;
+    float: left;
+    padding: 5px;
+}
+.zone_affichage{
+    top:1em;
+    right: 1%;
+    display: inline-block;
+    color: #818181;
+    font-weight: lighter;
+    font-family: "Myriad Pro" ;
+    font-size: 14px;
+    background-color: #f8fdfd;
+    margin: 0em  0em  .8em 2em;
+    height:auto;
+    padding-bottom: 10px;
+    box-shadow:  0px 0px 5px 0px  #818181 ;
+    border-radius: 5px;
+}
+.liste { 
+     top:-1em;
+     margin-top: .5em;
+    text-indent: 20px;
+    background-color:#f7f5f5;
+}
+.liste a {
+    text-decoration: none;
+    color: #818181;
+    font-size: 15px;
+    line-height: 30px;
+}
+
+.liste a img{
+    float: right;
+    margin: .3em  .5em  0 0em;
+    width: 1.3em;
+}
+ /*
+
+
+
+.partieAdmin{
+    width: 35%;
+    left: 1em;
+    top: 1.8em;
+    background-color:#fff;
+    box-shadow:  0px 0px 5px 0px  #818181 ;
+    border-radius: 5px;
+    padding-bottom: 10px;
+}
+.admin-avatar {
+    box-shadow:  0px 0px 5px 0px  #818181 ;
+    background:  linear-gradient(  #f8fdfd,#51bfd0) ;
+    height: 130px;
+    margin:0px 0  5px 0;
+}
+.admin-avatar img{
+    border: 1px solid #818181 ;
+    width:90px;
+    height:90px;
+    border-radius: 100%;
+    margin: 1em 0em  0 2em;
+    float: left;
+   padding: 5px;
+}
+.nom-prenom-Admin{
+    margin: 3em 0em  0 1.3em;
+    float: left;
+    line-height: 5px;
+}
+.liste { 
+    height: 40px;
+    width: 100%;
+    text-indent: 20px;
+}
+.liste a {
+    text-decoration: none;
+    color: #818181;
+    font-size: 15px;
+    line-height: 45px;
+}
+
+.liste a img{
+    float: right;
+    margin: .8em  1em  0 0em;
+    width: 1.5em;
+}
+.affichage{
+ 
+    top:2em;
+    width: 61%;
+    display: inline-block;
+    color: #818181;
+    font-weight: lighter;
+    font-family: "Myriad Pro" ;
+    font-size: 14px;
+    background-color: #f8fdfd;
+    margin: 0em  0em  .8em 2em;
+    height:auto;
+    padding-bottom: 10px;
+    box-shadow:  0px 0px 5px 0px  #818181 ;
+    border-radius: 5px;
+}
+/**---------------------css liste-joueur--------------*/
+.liste-joueur{
+position: relative;
+line-height: 20px;
+}
+.liste-joueur h3{
+    margin: 30px 0 10px 0;
+    text-align: center;
+}
+.liste-joueur table{
+    width: 80%;
+    border: 1px solid #3addd6;
+    text-align: justify;
+    border-radius: 10px;
+    margin: auto;
+    text-indent: 15px;
+}
+
+.btn-suiv,.btn-prec,.enregist{
+    color: #fff;
+    text-decoration: none;
+    height: 30px;
+    line-height: 30px;
+    width: 90px;
+    font-size: 14px;
+    text-align: center;
+    box-shadow:  0px 0px 5px 0px  #818181 ;
+}
+.btn-suiv{
+    background-color: #3addd6;
+   float: right;
+   margin: 5px 50px  0px 0px;
+}
+.btn-prec{
+    background-color: #818181;
+    margin: 5px 0px  0px 50px;
+   float: left;
+}
+/**---------------------css liste-joueur--------------*/
+
+/**---------------------css liste-question--------------*/
+    .les-questions{
+      position: relative;
+      line-height: 10px;
+    }
+    .les-questions .nb-quest{
+        margin: 15px 0 10px 0;
+        text-align: center;
+       
+    }
+    .liste-questions .nb-quest .nb-q_jeu{
+        display: inline-block;
+    }
+
+    .nb-quest input[type='number']{
+        width: 2.5em !important;    
+    }
+    .nb-quest input[type='submit']{
+        width: 2.5em !important;    
+        font-size: 15px;
+        background: blue;
+    }
+    .les-questions .affichage-qt{
+        width: 96%;
+        border: 1px solid #818181;
+        border-radius: 10px;
+        margin: auto;
+        padding-bottom: 8px;
+    }
+    .affichage-qt .lq_h3{
+        line-height: 20px;
+        margin: 2px 0 0px 13px ;
+
+    }
+    .affichage-qt div{
+        left: 1.5em;
+
+    }
+    /**---------------------fin css liste-question--------------*/
+    
+    /**--------------------- css creer-question--------------*/
+    .h3_quest{
+        display: inline-block;
+        color: #51bfd0;
+        margin-left: 20px;
+    }
+    #errors{
+        color:red; 
+        display:block; 
+        top:-10px ; 
+        left:15px; 
+        font-size:13px;
+    }
+    .errorquest{
+        color: red;
+        top :10px;
+    }
+    .q_error{
+        color: red;
+        top:6px;
+        left: 5em;
+    }
+    .creer-question{
+        border: 1px solid #3addd6;
+        border-radius: 10px;
+        height: auto;
+        padding-bottom:3em;
+        width: 98%;
+        margin: auto;
+        
+    }
+    #quest-form >span{
+        margin: 0px 1px 0 20px;
+        bottom: 13px;
+    }
+    #question{
+        top: 5px;
+        left: 10px;
+    }
+    #question,
+    #nb_point,
+    #choix,
+    #reponse,
+     #resp_input input{
+        border: none;
+        resize: none;
+        background-color: rgb(233, 233, 233);
+        color: blue;
+    }
+    #resp_input div{
+        margin-bottom: .5em;
+    }
+    .nb_point,.type_choix,#resp_input{
+        margin: 1em 0 -.5em 1.5em;
+    }
+    .nb_point #nb_point{
+        width: 3em;
+        height: 1.5em;
+        margin-left: 5px;
+    }
+    .type_choix #choix{ 
+        height: 1.8em;
+        width: 59%;
+    }
+    #resp_input #reponse{
+        margin:.3em 0 0 1em;
+        top: 1em;
+    }
+    #resp_input input[type='text']{ 
+        height: 1.8em;
+        width: 55%;
+        margin-left: 5px;
+    }
+    #resp_input input[type='radio'],
+    #resp_input input[type='checkbox']{ 
+        height: 1.8em;
+        width: 5%;
+        margin: 0px 0 0 .5em;
+        top: .5em;
+        left: 6px;
+        background-color:#51bfd0;
+    }
+    #resp_input button[type='button'],#btn-ajout{ 
+        height: 1.8em;
+        width: 5%;
+        margin-left: 5px;
+        top: .3em;
+        border: none;
+        background-color:#fff;
+        outline: none;
+    }
+    .span1{
+        top: -.5em;
+    } 
+    #btn-ajout img{
+       height: 1.8em;
+       width: 2em;
+       top: .2em;
+       margin-left: -10px;
+   }
+    .enregist{
+        left: 30px;
+        line-height: 10px;
+        top: 10px;
+    }
+    
+    /**---------------------fin css creer-question--------------*/
+*/

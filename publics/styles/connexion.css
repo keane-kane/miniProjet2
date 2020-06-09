@@ -1,23 +1,22 @@
-.selector-for-some-widget {
-    box-sizing: content-box;
-  }
-  *{ 
+
+ *{ 
+    box-sizing: border-box;
+    position: relative;
+}
+ body{   
     margin: 0 ;
-    padding: 0 !important;
-    box-sizing: content-box;
-}
-div.imgfond{
-    width:100%;
-    background-image: url("../images/fond.jpg");
+    padding: 0em !important;
+    background: url("../images/fond.jpg") no-repeat center fixed;
     background-size: cover;
-    background-repeat: no-repeat;
-    margin-bottom: none;
-   height: 598px;
-}
+    width: 100%;
+    height: 0vh;
+ }
+
 .plaisir{
-    height: 8%;
     background: #0B5973;
     border: 1px solid #758651;
+    top: -1.5em;
+    z-index: 6666;
 }
 .imageH{
     background-image: url("../images/logo-QuizzSA.png");
@@ -35,13 +34,22 @@ div.imgfond{
    line-height: 1.2em;
    font-size: 2em;
 }
+.f{
+    background: #0B5973;
+    border: 1px solid #758651;
+    text-align: center;
+    color: #fff; 
+    top :5.8vh;
+    z-index: 6666;
+}
 .div-form-con{
     position: relative;
-    background-color: #fbffff;
+    background-color: #F9FAFB;
     margin:auto;
     width:22em;
     height: 28em;
-    top:1em;
+    top:-.5em;
+
 }
 .login{
     position: relative;
@@ -59,12 +67,15 @@ form{
     height: auto;
     top: 1em;
 }
-.div2 {
-    margin: 2em 0 -1em;
+.div1 {
+    margin: 4em 0 0em;
 }
-.div2 input{
+.div2 {
+    margin: 2em 0 0em;
+}
+.div2 input,.div1 input{
 height: 2.5em;
-text-indent: 25px;
+text-indent: 15px;
 letter-spacing: 1px;
 background: #E5E5E5;
 margin: auto;
@@ -73,14 +84,14 @@ box-shadow: inset 0 .4em .4em rgba(0, 0, 0, 0.25);
 .checkbox input{
     height: 2em;
     width:1.5em;
-    margin: 1.5em 0 0 1.5em;
+    margin: 1.5em 0 0 1em;
     border: 2px solid #0B5973;
     box-sizing: border-box;
 
  } 
 .checkbox span{
     position: absolute;
-    margin: 1.8em  .5em!important ;
+    margin: 1.8em  .5em !important ;
     color: #000;
     font-family: sans-serif;
 }
@@ -88,9 +99,9 @@ box-shadow: inset 0 .4em .4em rgba(0, 0, 0, 0.25);
 div .btn{  
     height: 1.5em;
     letter-spacing: 1px;
-    line-height: -3em;
+    line-height: 0em;
     font-size:1.5em;
-    margin : .5em .7em;
+    margin : 1.5em 0 0 0em;
     color:  #fbffff; 
     background: #58BDE9;
     box-shadow: 0 .1em .3em rgba(0, 0, 0, 0.25);
@@ -98,15 +109,14 @@ div .btn{
 .inscrire {
     background: #fff;
     box-shadow: 0 .4em .4em rgba(0, 0, 0, 0.25);
-    border-radius: 50px;
     text-align: center;
-    margin-left :1em;
+    margin-left :0em;
     height: 2.5em;
     margin-top: 1em;
 }
-.inscrire,.btn,.div2 input{
+.inscrire,.btn,.div2 input, .div1 input{
    border-radius: 50px;
-   width:90%;
+   width:100%;
 }
 .inscrire a{
     color:rgb(26, 29, 236);;
@@ -117,32 +127,23 @@ div .btn{
     color:rgb(245, 11, 11);
     text-decoration: underline;
 }
-.f{
-    position: relative;
-    height: 5%;
-    width: 100%;
-   bottom: -4.6em;
-   margin-bottom: 0;
-    background: #0B5973;
-    border: 1px solid #758651;
-    text-align: center;
-    color: #fff; 
-}
-.erreur{
 
-    margin: 0em 0 0 2.5em;
+.erreur{
+    position: absolute;
+    margin: 0em  1em -3em 1em;
     color: red;
     font-size: 12px;
+    float: right !important;
+    right: 0;
 }
-.error{
-    display: block;
-   position: relative;
+#error{
+    position: relative;
     top: 1.8em;
-    margin-bottom: -1em;
+    margin-bottom: -3em;
     color: #fff;
     font-size: 14px;
     text-align: center;
     width: 100%;
-   background-color:  red;
+    background-color:  red;
     
 }
