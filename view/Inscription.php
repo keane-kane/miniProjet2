@@ -1,17 +1,27 @@
 <?php 
  $titre = 'Inscription';
+$role = '';
+ $chemin=$_SERVER['REQUEST_URI'];
+ if(strpos( $chemin, "Inscription") !== false){
+    $role = "user";
+}
+if(strpos( $chemin, "admin") !== false){
+    $role = "admin";
+}
+
 ?>
 <div class="container">
-    <div class="row  ">
-        <div class="col-11 col-sm-8 col-md-6  col-lg-4 contentgeneral">
+    <div class="row ">
+        <div  id="col" class="col ">
             <div class="entete">
                 <p><img  src="./publics/images/fond.jpg" class="" alt=""  width="60" height="60" ></p>
                 <h2 class="titre">S'inscrire</h2> 
                 <hr col-7 col-sm-6 col-md-5 >
                 <span id="niveau" class="text-md-center text-sm-justify">Pour tester votre niveau de culture générale</span>    
             </div>
-            <form class="form" id="form-control" method="post" action="">
-            
+            <form class="form" id="form-control" method="post" action="" enctype="multipart/form-data">
+               <input type="hidden"  id="statut" name="statut" value='2' >
+               <input type="hidden"  id="role" name="role" value='<?= $role ?>' >
                 <div class="form-group divinput">
                     <label for="">Prenom</label>
                     <input type="text" class="form-control"  id="prenom" name="prenom" value="">  

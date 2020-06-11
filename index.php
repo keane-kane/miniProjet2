@@ -1,6 +1,11 @@
 ﻿<?php 
   session_start();
 
+  require_once "./data/fonction.php";
+  $_SESSION['url']= getUrl();
+  $chemin=$_SERVER['DOCUMENT_ROOT'].$_SERVER['REQUEST_URI'];
+  $_SESSION['chemin']=$chemin; 
+  
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,9 +40,12 @@
       <div id="content">
           <?php
 
-            require_once('view/connexion.php');
 
-            // require_once('view/template.php');
+           //require_once('view/connexion.php');
+
+            //require_once('view/Inscription.php');
+           require_once('view/admin.php');
+           //require_once('view/user.php');
           ?>
          
       </div>

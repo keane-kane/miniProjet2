@@ -1,6 +1,7 @@
 ﻿<?php 
 $titre = 'Connexion';
 // var_dump($_POST);
+
 ?>
 
 <div class="container-fluid ">
@@ -10,6 +11,7 @@ $titre = 'Connexion';
          <span id=error  style="display: none;">Votre login ou mot de passe et incorrecte !</span> 
         
         <form id="control-form"  method="post" action="">
+            
             <div class="form-group div1 ">
                 <input type="text" class="form-control"  error="error-1" placeholder="Enter login"id="login" name="login" value="<?php if(isset($_COOKIE['cookiemail'])) { echo $_COOKIE['cookiemail']; } ?>">
                 <span class="erreur" id="error-1"></span>

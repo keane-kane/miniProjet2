@@ -4,7 +4,7 @@
 ?>
             
          
-<div class="container inter_admin">
+<div id='container' class="container inter_admin">
 
     <div class=" row menuheader ">
        <p class="adminquizz  text-xl-center col-9 col-xl-9 ">CR&#201;ER ET PARAM&#201;TRE VOS QUIZZ</p>
@@ -25,22 +25,17 @@
             </div>
         </div>
         <div class="tableau-bord-Admin" >
-            <div class="liste question"><a href="index.php?page=admin&menu=listequestion">Liste Questions<img src="./publics/images/ic-liste.png"/></a> </div>
-            <div class="liste creerAdmin"><a href="index.php?page=admin&menu=creeradmin">Créer Admin<img src="./publics/images/ic-ajout.png"/></a></div>
-            <div class="liste joueurs" ><a href="index.php?page=admin&menu=listejoueur">Listes joueurs<img src="./publics/images/ic-liste.png"/></a></div>
-            <div class="liste creerquestions"><a href="index.php?page=admin&menu=creerquestion">Créer Questions <img src="./publics/images/ic-ajout.png"/></a></div>
-            <div class="liste tableaudebord"><a href="index.php?page=admin&menu=tableaudebord">Tableau de Bord <img src="./publics/images/ic-liste.png"/></a></div> 
+            <div id="l_question" class="l question"><a href="">Liste Questions<img alt="" src="./publics/images/ic-liste.png"/></a> </div>
+            <div id="creeradmin" class="l creerAdmin"><a href="">Créer Admin<img alt="" src="./publics/images/ic-ajout.png"/></a></div>
+            <div id="l_joueurs" class="l joueurs" ><a href="">Listes joueurs<img alt="" src="./publics/images/ic-liste.png"/></a></div>
+            <div id="creerquest" class="l creerquestions"><a href="">Créer Questions <img alt="" src="./publics/images/ic-ajout.png"/></a></div>
+            <div id="tableaudebord" class="l tableaudebord"><a href="">Tableau de Bord <img alt="" src="./publics/images/ic-liste.png"/></a></div> 
         </div>
     </div>
     <div class="zone_affichage col-12 col-sm-8 col-md-8 " id="affichage">  
         <div class="row">
-         <div class="col-12">
-           <?php 
-             if(isset($_GET['menu']) && $_GET['menu']== 'creeradmin') 
-             {
-                  require('Inscription.php');
-             }
-           ?>
+         <div class="col" id="charger">
+           
           </div>
         </div>
     </div>
@@ -48,7 +43,5 @@
  
 </div>
 <script>
-$(document).ready(function(e){
-     alert('contentgeneral');
-})     
+    
 </script>
