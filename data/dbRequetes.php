@@ -1,3 +1,4 @@
+
 <?php  
 // Nouvelle fonction qui nous permet d'éviter de répéter du code
 
@@ -10,8 +11,8 @@
  $_SESSION['chemin']=$chemin; 
  
  global $conn;
+ //echo json_encode( $_POST['statut']);
  
-
 //  $prepUser = getPrepIns('scoreuser'); 
 //  foreach ($_POST as $usr) {
 //   //$imgs = array_pop($usr);
@@ -20,20 +21,25 @@
 //  }
 //   echo json_encode($id_user);
   //echo $statut;
-// login page and data
-      /*  $statut= 0;
-        //$_POST['statut'];
-      
-  if($statut == 1){
+  
+  $statut = 0;
+if(isset($_POST['statut']))
+{
+  $statut = $_POST['statut'];
+  
+  if($statut == 1)
+  {
+    
+  
     $login =$_POST['login'];
     $pwd = $_POST['pwd'];
-        $requete = 'SELECT * FROM `donneesuser` WHERE login =:login AND password1 =:pwd';
+        $requete = 'SELECT * FROM `donuser` WHERE login =:login AND password1 =:pwd';
 
         $reponse = $conn->prepare($requete);
         $reponse-> execute(array('login'=>$login, 'pwd'=>$pwd));
         $reponse = $reponse->fetch(2);
 
-        //echo json_encode($reponse);
+         echo json_encode($reponse);
   
         if($reponse)
         {
@@ -41,7 +47,6 @@
           $_SESSION['connec']= $_POST;
         }
   }
-
 
   //subscribe page and data
   if($statut == 2)
@@ -130,34 +135,119 @@
     $result = $req->fetch(2);
 
     echo json_encode($result);
-  }*/
-      
+  }
+
+  if($statut == 4)
+  {
+        //echo json_encode($_POST);
+        $quest =$_POST['quest'];
+        $nb_point =$_POST['nb_point'];
+        $type =$_POST['choix'];
+        $reponse = $_POST['tab'];
+        $choix=[];
+        $exact= 0;
+        $r_reponse ='';
+        
+        $r_insert = $conn->prepare("INSERT INTO question(libellee, score,type) 
+                                 VALUES (:quest, :nb_point, :choix)");
+                                
+              $r_insert->execute(array(
+                                  ':quest' => $quest,
+                                  ':nb_point' => $nb_point,
+                                  ':choix' => $type
+                                ));
+             $idquest = $conn->lastInsertId();
+             echo json_encode($idquest);
+        
+        
+        if($idquest > 0)
+        {
+            foreach($reponse as $keys =>$value)
+            {
+                if(isset($value))
+                {
+                   if(isset($_POST['rep'])){
+                     $correcte = $_POST['rep'];
+                    foreach($correcte as $key =>$val)
+                      {
+                          if($keys == $key){
+                            $exact = 1;
+                          }
+                      }
+                  }
+                    $r_reponse = $conn->prepare("INSERT INTO reponse(l_reponse, idQ, correcte) 
+                                                 VALUES (:lrep, :idq, :exact)");    
+                     $r_reponse->execute(array(
+                      ':lrep' => $value,
+                      ':idq' => $idquest,
+                      ':exact' => $exact,
+                    ));
+                  //  $choix= array_push("$key"=>$vlaue)
+                    
+                }
+            }
+                
+        }
+        echo json_encode($r_reponse);
+  } 
+
+  if($statut == 5)
+  {
+    $nb = $_POST["nb"];
+    $offset= $_POST["offset"];
+    $tab= [];
+   // $quest = " SELECT *FROM `question`, `reponse` ORDER BY question.idQ LIMIT 3  OFFSET {$offset} ";
+    //$quest = " SELECT reponse.idQ, l_reponse, correcte FROM `reponse`,`question` where  3 =reponse.idQ";
+
+    $r ="SELECT * FROM question,reponse WHERE question.idQ = reponse.idQ";
+  
+    $req = $conn->query($r);
+    $tab = $req->fetch(PDO::FETCH_ASSOC);
+    
+    
+    echo json_encode($tab);
+   
+
+     
+  }
+}
 /*===================================================================== */
+///recuparation des question et lister
+
+
+
+
 
 if(isset($_POST["action"])) //Check value of $_POST["action"] variable value is set to not
 {
   $user= 'user';
+  $output=  '';
    //For Load All Data
    if($_POST["action"] == "Load") 
    {
-      $statement = $conn->prepare("SELECT * FROM `donuser` WHERE role=:user  ORDER BY iduser");
-      $statement->execute(array("user"=>$user));
-      $result = $statement->fetchAll(2);
-      $output = '';
+      $limit = $_POST['limit'];
+      $offset = $_POST['offset'];
 
-      if($statement->rowCount() > 0)
+      $stmt = $conn->prepare("SELECT * FROM `donuser` WHERE role=:user LIMIT :limite, :offset");
+      $stmt->bindValue('user', $user, PDO::PARAM_STR);
+      $stmt->bindValue('limite', $limit, PDO::PARAM_INT);
+       $stmt->bindValue('offset', $offset, PDO::PARAM_INT);
+      
+      $stmt->execute();
+      
+       $result = $stmt->fetchAll(2);
+       echo json_encode($result);
+      if($result > 0)
       {
         foreach($result as $row)
         {
           $output .= '
-          <tr> 
+          <tr class=""> 
           <td>'.$row["idUser"].'</td>
           <td>'.$row["nom"].'</td>
           <td>'.$row["prenom"].'</td>
-          
-          
-          <td><button type="button" id="'.$row["idUser"].'" class="btn btn-warning btn-xs update">Update</button></td>
-          <td><button type="button" id="'.$row["idUser"].'" class="btn btn-danger btn-xs delete">Delete</button></td>
+          <td><button type="button" id="'.$row["idUser"].'" class="btn btn-warning btn-xs  text-sm mt-0 update"><span class="fa fa-binoculars"></span></button></td>
+          <td><button type="button" id="'.$row["idUser"].'" class="btn btn-danger btn-xs mt-0  delete"><span class="fa fa-archive"></span></button></td>
           </tr>
           ';
         }
@@ -173,6 +263,7 @@ if(isset($_POST["action"])) //Check value of $_POST["action"] variable value is 
       $output .= '</table>';
       echo $output;
    }
+
    if($_POST["action"] == "Select")
    {
     $output = array();
@@ -192,7 +283,7 @@ if(isset($_POST["action"])) //Check value of $_POST["action"] variable value is 
    }
    if($_POST["action"] == "Update")
    {
-      $statement = $con->prepare(
+      $statement = $conn->prepare(
       "UPDATE donuser 
       SET nom = :first_name, prenom= :last_name 
       WHERE idUser = :id
@@ -207,25 +298,28 @@ if(isset($_POST["action"])) //Check value of $_POST["action"] variable value is 
       );
       if(!empty($result))
       {
-      echo 'Data Updated';
+      echo json_encode($result);
       }
- }
+    }
 
- if($_POST["action"] == "Delete")
- {
+    if($_POST["action"] == "Delete")
+    {
       $statement = $conn->prepare(
-      "DELETE FROM donuser WHERE idUser = :id"
+     //  "DELETE FROM donuser WHERE idUser = :id"
+       "UPDATE `donuser` SET `status` =:id  WHERE `idUser` =:idu"
       );
       $result = $statement->execute(
       array(
-        ':id' => $_POST["id"]
+        ':id' =>0,
+        ':idu' =>$_POST["id"]
+         
       )
       );
       if(!empty($result))
       {
       echo 'Data Deleted';
       }
- }
+    }
 
  //===============user parte===========
   //For Load All Data
@@ -252,13 +346,13 @@ if(isset($_POST["action"])) //Check value of $_POST["action"] variable value is 
      }
      else
      {
-       $output .= '
+      echo  $output .= '
          <tr>
          <td align="center">Data not Found</td>
          </tr>
        ';
      }
      $output .= '</table>';
-     echo $output;
+      echo $output;
   }
 }

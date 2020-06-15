@@ -3,12 +3,12 @@
 }
 .inter_admin{  
     width: 60%;
+    height: 500px;
     border-radius: 50px;  
     margin: auto;
-    top: .5em;
+    top: .3em;
     background: #3F8FA0;
-    margin-bottom: 5px;
-    padding-bottom: 30px;
+    margin-bottom: -23px;
 }
 .div-row1 {
     display: flex;
@@ -84,7 +84,7 @@
 }
 
 .menuheader{
-    top: 20px; 
+    top: 5px; 
     margin: auto; 
     left: 5%;
 }
@@ -98,7 +98,7 @@
 .partiadmin{
     height: 20em;
     left: 3%;
-    top: 1em;
+    top: .3em;
     background-color:#fff ;
     box-shadow:  0px 0px 5px 0px  #818181 ;
     border-radius: 5px;
@@ -121,11 +121,14 @@
     float: left;
     padding: 5px;
 }
+#chager{
+   
+}
 .zone_affichage{
-    top:1.2em; 
+    top: .4em;   
+    height: 440px;
     background-color: #f8fdfd;
     margin: 0em  0em  .8em 2em;
-    height:auto;
     box-shadow:  0px 0px 5px 0px  #818181 ;
     border-radius: 5px;
 }

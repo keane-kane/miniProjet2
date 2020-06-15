@@ -2,7 +2,7 @@
 
 function getPrepIns($table){
   $prep['scoreuser']="INSERT INTO `scoreuser` (`nom`,`prenom`,`score`) VALUES (?, ?,?);";
-  //$prep['images']="INSERT INTO `".DB_NAME."`.`images` VALUES ( NULL,?, ?, ?);";
+  $prep['images']="INSERT INTO `".DB_NAME."`.`images` VALUES ( NULL,?, ?, ?);";
   return $prep[$table];	
 }
 

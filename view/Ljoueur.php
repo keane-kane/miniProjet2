@@ -7,38 +7,54 @@
    }
    .box
    {
-    width:1270px;
+    width:1200px;
     padding:20px;
     background-color:#fff;
     border:1px solid #ccc;
     border-radius:5px;
     margin-top:100px;
    }
+   .btn-xs{
+       font-size: 10px !important;
+     
+      height: 2em !important;
+        width: 1.5em !important;
+       left:-1em !important;
+   }
+   .mr-4{
+       left: -1em;
+       margin:0 -1em !important;
+   }
+  
   </style>
   
-  <div class="row" >
-      <div  id="partiadmin" class="partiadmin col-10 col-sm-4 col-md-4" > 
+  <div class="row " >
+      <div  id="partiadmin" class="partiadmi col-10 col-sm-4 col-md-3" > 
          <div class="row" id="tableau" > 
          
-    <table  class="table table-striped">
+    <table  class="table table w-75 text-md ">
         <thead>
-            <tr class="text-center">
-                <th>Id</th>
-                <th>Prenom</th>
-                <th>Nom</th>
+            <tr class="text-center  ">
+                <th class="text-center mx-0 ">Id</th>
+                <th class="text-center mx-0 ">Prenom</th>
+                <th class="text-center mr-4 ">Nom</th>
+                <th cclass="text-center mr- ">Modifer</th>
+                <th class="text-center mr- ">Suprimer</th>
                 
             </tr>
         </thead>
         <tbody id="tbody">
-            <tr class="text-center">
+            <tr class=" text-center">
                <td>100000</td>
+                <td>abdou</td>
+                <td>abdou</td>
                 <td>abdou</td>
                 <td>kane</td>
                 
             </tr>
         </tbody>
     </table>
-    <div class="col-md-4 mt-4 float-right" id="suiv"><button>Suivant >></button></div>
+    <!-- <div class="col-md-4 mt-4 float-right" id="suiv"><button>Suivant >></button></div> -->
 
 
 <!-- This is Customer Modal. It will be use for Create new Records and Update Existing Records!-->
@@ -66,61 +82,112 @@
 </div>
 
 <script>
-$(document).ready(function(){
-    loadUser(); //This function will load all data on web page when page load
-    function loadUser() // This function will load data from table and display under <div id="result">
+
+    
+
+    // scroll
+		 limit = 10
+		  offset = 1;
+		 tbody = $('#tbody');
+		
+         loadUser(limit,offset); 
+            //  Scroll
+         charger = $('#charger');
+        charger.scroll(function(){
+        //console.log(scrollZone[0].clientHeight)
+        const st = charger[0].scrollTop;
+        const sh = charger[0].scrollHeight;
+        const ch = charger[0].clientHeight;
+
+        
+        if(sh-st <= ch){
+            loadUser(limit, offset)
+            
+        }
+    })
+    $('#action').click(function(){
+    var firstName = $('#first_name').val(); 
+    var lastName = $('#last_name').val(); 
+    var id = $('#customer_id').val(); 
+    var action = $('#action').val();  
+    if(firstName != '' && lastName != '') 
     {
-        var action = "Load";
-        $.ajax({
-            url : "http://localhost/miniProjet2/data/dbRequetes.php", //Request send to "action.php page"
-            method:"POST", //Using of Post method for send data
-            data:{action:action}, //action variable data has been send to server
-            success:function(data){
-                $('#tbody').html(data); //It will display data under div tag with id result
-            }
-        });
+    $.ajax({
+    url : "http://localhost/miniProjet2/data/dbRequetes.php",   
+    method:"POST",    
+    data:{firstName:firstName, lastName:lastName, id:id, action:action}, 
+    success:function(data){
+        alert(data);  
+        $('#customerModal').modal('hide'); 
+        loadUser();    
     }
+    });
+    }
+    else
+    {
+    alert("Both Fields are Required"); 
+    }
+    });
+
     $(document).on('click', '.update', function(){
-        var id = $(this).attr("id"); //This code will fetch any customer id from attribute id with help of attr() JQuery method
-        var action = "Select";   //We have define action variable value is equal to select
+        var id = $(this).attr("id"); 
+        var action = "Select";   
         $.ajax({
-            url:"http://localhost/miniProjet2/data/dbRequetes.php",   //Request send to "action.php page"
-            method:"POST",    //Using of Post method for send data
-            data:{id:id, action:action},//Send data to server
+            url:"http://localhost/miniProjet2/data/dbRequetes.php",  
+            method:"POST",   
+            data:{id:id, action:action},
             dataType:"json", 
             success:function(data){
                
-            $('#customerModal').modal('show');   //It will display modal on webpage
-            $('.modal-title').text("Update Records"); //This code will change this class text to Update records
-            $('#action').val("Update");     //This code will change Button value to Update
-            $('#customer_id').val(id);     //It will define value of id variable to this customer id hidden field
-            $('#first_name').val(data.first_name);  //It will assign value to modal first name texbox
-            $('#last_name').val(data.last_name);  //It will assign value of modal last name textbox
+            $('#customerModal').modal('show'); 
+            $('.modal-title').text("Update user"); 
+            $('#action').val("Update");     
+            $('#customer_id').val(id);   
+            $('#first_name').val(data.first_name);  
+            $('#last_name').val(data.last_name);  
             
         }
         });
     });
     $(document).on('click', '.delete', function(){
-  var id = $(this).attr("id"); //This code will fetch any customer id from attribute id with help of attr() JQuery method
-  if(confirm("Are you sure you want to remove this data?")) //Confim Box if OK then
-  {
-   var action = "Delete"; //Define action variable value Delete
-   $.ajax({
-    url:"http://localhost/miniProjet2/data/dbRequetes.php",    //Request send to "action.php page"
-    method:"POST",     //Using of Post method for send data
-    data:{id:id, action:action}, //Data send to server from ajax method
+    var id = $(this).attr("id"); 
+    
+    if(confirm("Are you sure you want to remove this data?"))
+    {
+        
+    var action = "Delete"; 
+    $.ajax({
+    url:"http://localhost/miniProjet2/data/dbRequetes.php",   
+    method:"POST",     
+    data:{id:id, action:action}, 
     success:function(data)
     {
+        
         console.log(data);
+        
+     alert(data); 
      
-     alert(data);    //It will pop up which data it was received from server side
     }
+    
    })
+   $(this).parents('tr').hide();
   }
-  else  //Confim Box if cancel then 
+  else  
   {
-   return false; //No action will perform
+   return false; 
   }
  });
-});
+ $("#tbody")
+    .on("click","tr",function(){
+       
+       coul=$("body").css("background-color");
+       $(this).css("background-color","orange");
+       $("#bd_users tr").not(this).css("background-color",coul);
+    })
+    .on('dblclick',"td",function(){
+        $(this).parents().css("background-color",coul);
+        // const id =$(this).attr("id");
+        // const tab = id.split("_");
+        // objEnCours=$(this);
+    })
 </script>

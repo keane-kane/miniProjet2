@@ -41,10 +41,10 @@
           <?php
 
 
-           //require_once('view/connexion.php');
+          require_once('view/connexion.php');
 
             //require_once('view/Inscription.php');
-           require_once('view/admin.php');
+          //   require_once('view/admin.php');
            //require_once('view/user.php');
           ?>
          

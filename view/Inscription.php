@@ -12,7 +12,7 @@ if(strpos( $chemin, "admin") !== false){
 ?>
 <div class="container">
     <div class="row ">
-        <div  id="col" class="col ">
+        <div  id="col" class=" col contentgeneral">
             <div class="entete">
                 <p><img  src="./publics/images/fond.jpg" class="" alt=""  width="60" height="60" ></p>
                 <h2 class="titre">S'inscrire</h2> 
@@ -61,5 +61,3 @@ if(strpos( $chemin, "admin") !== false){
     </div>
 </div>
 
-<script type="text/javascript">
-</script>

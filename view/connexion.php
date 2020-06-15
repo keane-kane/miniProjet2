@@ -24,7 +24,7 @@ $titre = 'Connexion';
                 <input type="checkbox" name="remember" id="remb"  <?php if(isset($_COOKIE['cookiemail']) && ($_COOKIE['cookiemail']!="")) {echo "checked";} ?>><span>Se souvenir de moi</span>
             </div>
             <input type="submit" class="btn btn-default" id="submit" name="submit" value ="Connexion">
-            <button class="inscrire" id="inscri" >S'inscrire pour jouer?</button>
+            <button type="button" class="inscrire" id="inscri" >S'inscrire pour jouer?</button>
 
         </form>
     </div>
